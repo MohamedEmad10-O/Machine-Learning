@@ -1,0 +1,40 @@
+
+Numerical Example of IQR Outlier Detection
+
+Consider a DataFrame `df` with a column `Rainfall` containing the following values:
+
+10, 12, 15, 14, 9, 8, 20, 25, 22, 100, 2
+
+Step 1: Calculate the Quartiles
+- Q1 (25th percentile): This is the value below which 25% of the data falls.
+- Q3 (75th percentile): This is the value below which 75% of the data falls.
+
+We calculate these using the `quantile()` method.
+
+For our data:
+- Q1 = 9.5
+- Q3 = 21.0
+
+Step 2: Calculate the IQR
+The Interquartile Range (IQR) is the difference between Q3 and Q1.
+
+For our data:
+- IQR = 21.0 - 9.5 = 11.5
+
+Step 3: Calculate the Fences
+The lower and upper fences are used to detect outliers.
+
+For our data:
+- Lower_fence = 9.5 - (11.5 * 3) = -25.0
+- Upper_fence = 21.0 + (11.5 * 3) = 55.5
+
+Step 4: Identify Outliers
+Any data point below the lower fence or above the upper fence is considered an outlier.
+
+For our data:
+- The lower fence is -25.0, so no values are below this.
+- The upper fence is 55.5, so the value 100 is an outlier.
+
+Summary:
+In this example, 100 is detected as an outlier using the IQR method with the lower and upper fences calculated as -25.0 and 55.5 respectively. The IQR technique effectively identifies 100 as an outlier because it is well above the upper fence.
+
